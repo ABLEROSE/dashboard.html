@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem auto;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Employee Dashboard</h1>
+        <p>Total Employees: {{ employee_count }}</p>
+    </header>
+    <main>
+        <h2>Employee List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Plant_ID</th>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Department</th>
+                    <th>Section</th>
+                    <th>Subsection</th>
+                    <th>Grade</th>
+                    <th>Education</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee.plant_id }}</td>
+                    <td>{{ employee.emp_id }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.address }}</td>
+                    
+
+
+                    <td>{{ employee.dep_id.dep_name }}</td>
+                    <td>{{ employee.sec_id.sec_name }}</td>
+                    <td>{{ employee.subsection_id.subsection_name }}</td>
+                    <td>{{ employee.grade_id.grade_name }}</td>
+                    <td>{{ employee.education }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
